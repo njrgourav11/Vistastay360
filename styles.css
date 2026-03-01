@@ -1,0 +1,644 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --surface: #f8fafc;
+  --card: #ffffff;
+  --accent: #f97316;
+  --accent-dark: #ea580c;
+  --cool: #0ea5e9;
+  --mint: #10b981;
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: radial-gradient(circle at 10% 10%, #fff7ed 0%, #ffffff 45%),
+    radial-gradient(circle at 90% 10%, #e0f2fe 0%, #ffffff 40%),
+    radial-gradient(circle at 50% 100%, #fef3c7 0%, #ffffff 50%);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 6vw 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 10;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.brand-name {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-tag {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.cta,
+.ghost {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 12px 24px rgba(249, 115, 22, 0.25);
+}
+
+.cta:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.ghost {
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--ink);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  padding: 24px 6vw 80px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -40px -20px;
+  background: linear-gradient(120deg, rgba(14, 165, 233, 0.1), transparent 55%),
+    linear-gradient(300deg, rgba(249, 115, 22, 0.1), transparent 60%);
+  border-radius: 48px;
+  z-index: -1;
+}
+
+.hero-content h1 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  margin-top: 12px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--cool);
+  font-weight: 600;
+}
+
+.subhead {
+  margin-top: 16px;
+  color: var(--ink-muted);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-meta {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.hero-meta .stat {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hero-meta .label {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.hero-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.pill {
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--cool);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero-viewer,
+.room-viewer,
+.modal-viewer {
+  border-radius: var(--radius-md);
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+  cursor: grab;
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.room-viewer {
+  min-height: 180px;
+}
+
+.room-viewer::after,
+.hero-viewer::after,
+.modal-viewer::after {
+  content: "Drag to explore 360°";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.7);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.room-viewer::before,
+.hero-viewer::before,
+.modal-viewer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.35) 100%);
+  pointer-events: none;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.room-name {
+  font-weight: 600;
+}
+
+.room-meta {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.search {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.search-field input,
+.search-field select {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.rooms,
+.experiences,
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-header h2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+}
+
+.section-header p {
+  color: var(--ink-muted);
+  margin-top: 8px;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.room-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.16);
+}
+
+.room-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.room-info h3 {
+  font-size: 18px;
+}
+
+.room-info p {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 6px;
+}
+
+.room-price {
+  text-align: right;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.room-price small {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.room-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.room-actions .cta {
+  flex: 1;
+}
+
+.room-actions .ghost {
+  flex: 1;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.experience-card {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experience-card h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.experience-card p {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.booking {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.booking-card {
+  background: var(--card);
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.booking-card h2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.booking-card p {
+  color: var(--ink-muted);
+  margin-bottom: 18px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-form input,
+.booking-form select {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.date-row {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aside-card {
+  border-radius: var(--radius-md);
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.aside-card.alt {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.site-footer {
+  padding: 32px 6vw 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: space-between;
+  color: var(--ink-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-note {
+  font-size: 12px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--card);
+  width: min(920px, 94vw);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-header h3 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 24px;
+}
+
+.booking-form button.cta {
+  background: linear-gradient(120deg, var(--accent) 0%, #fb923c 50%, var(--accent-dark) 100%);
+}
+
+.hero-actions .cta {
+  background: linear-gradient(120deg, var(--accent) 0%, #fb923c 50%, var(--accent-dark) 100%);
+}
+
+.site-footer .footer-links a {
+  font-size: 13px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section-header .tag {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--mint);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.glow-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.glow-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.glow-card strong {
+  font-size: 18px;
+}
+
+.glow-card span {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero,
+.search,
+.room-card,
+.experience-card,
+.booking-card,
+.aside-card {
+  animation: floatIn 0.6s ease both;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.modal-viewer {
+  min-height: 320px;
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room-info {
+    flex-direction: column;
+  }
+
+  .room-actions {
+    flex-direction: column;
+  }
+
+  .date-row {
+    flex-direction: column;
+  }
+}

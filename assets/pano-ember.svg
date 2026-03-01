@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="600" viewBox="0 0 2000 600">
+  <defs>
+    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="55%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </linearGradient>
+    <pattern id="texture" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect x="10" y="10" width="30" height="30" fill="rgba(255,255,255,0.16)" />
+      <rect x="60" y="50" width="40" height="40" fill="rgba(255,255,255,0.1)" />
+      <rect x="20" y="70" width="60" height="20" fill="rgba(255,255,255,0.12)" />
+    </pattern>
+  </defs>
+  <rect width="2000" height="600" fill="url(#ember)" />
+  <rect width="2000" height="600" fill="url(#texture)" />
+  <rect y="430" width="2000" height="170" fill="rgba(124,45,18,0.35)" />
+  <rect x="180" y="340" width="280" height="110" fill="rgba(124,45,18,0.45)" />
+  <rect x="520" y="320" width="240" height="130" fill="rgba(124,45,18,0.35)" />
+  <rect x="860" y="350" width="260" height="100" fill="rgba(124,45,18,0.4)" />
+  <rect x="1220" y="330" width="230" height="120" fill="rgba(124,45,18,0.5)" />
+  <rect x="1540" y="340" width="260" height="110" fill="rgba(124,45,18,0.38)" />
+  <text x="1000" y="300" text-anchor="middle" font-size="64" font-family="DM Sans, sans-serif" fill="#ffffff">
+    Ember Corner Studio • 360° Panorama
+  </text>
+</svg>

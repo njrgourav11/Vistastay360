@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VistaStay • 360° Hotel Booking</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <div class="brand-name">VistaStay</div>
+          <div class="brand-tag">360° Hotel Booking</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#rooms">Rooms</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#booking">Book</a>
+      </nav>
+      <button class="cta">Member Deals</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Immersive stays in minutes</p>
+          <h1>Tour rooms in 360° before you book.</h1>
+          <p class="subhead">
+            Explore every corner with drag-to-pan panoramic views. Pick a
+            suite, lock your dates, and check out in seconds.
+          </p>
+          <div class="hero-actions">
+            <button class="cta">Start 360° Tour</button>
+            <button class="ghost">See amenities</button>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <div class="stat">68</div>
+              <div class="label">Boutique hotels</div>
+            </div>
+            <div>
+              <div class="stat">4.9</div>
+              <div class="label">Avg. guest rating</div>
+            </div>
+            <div>
+              <div class="stat">24/7</div>
+              <div class="label">Concierge support</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-header">
+            <span>Featured 360° suite</span>
+            <span class="pill">New</span>
+          </div>
+          <div class="hero-viewer" data-room="aurora"></div>
+          <div class="card-footer">
+            <div>
+              <div class="room-name">Aurora Sky Suite</div>
+              <div class="room-meta">King bed · Skyline view · 540 sq ft</div>
+            </div>
+            <button class="ghost" data-open="aurora">View 360°</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="search">
+        <div class="search-field">
+          <label>Destination</label>
+          <input type="text" value="Barcelona, Spain" />
+        </div>
+        <div class="search-field">
+          <label>Check-in</label>
+          <input type="date" />
+        </div>
+        <div class="search-field">
+          <label>Check-out</label>
+          <input type="date" />
+        </div>
+        <div class="search-field">
+          <label>Guests</label>
+          <select>
+            <option>2 Adults</option>
+            <option>2 Adults · 1 Child</option>
+            <option>3 Adults</option>
+            <option>Family Suite</option>
+          </select>
+        </div>
+        <button class="cta">Search Rooms</button>
+      </section>
+
+      <section id="rooms" class="rooms">
+        <div class="section-header">
+          <div>
+            <span class="tag">Featured</span>
+            <h2>360° Room Collection</h2>
+            <p>Drag inside each panorama to preview the space.</p>
+          </div>
+          <div class="glow-strip">
+            <div class="glow-card">
+              <strong>Instant 360°</strong>
+              <span>No plugins needed, just drag</span>
+            </div>
+            <div class="glow-card">
+              <strong>VR Friendly</strong>
+              <span>Optimized for headsets</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-grid">
+          <article class="room-card">
+            <div class="room-viewer" data-room="aurora"></div>
+            <div class="room-info">
+              <div>
+                <h3>Aurora Sky Suite</h3>
+                <p>Panoramic skyline, soaking tub, private bar.</p>
+              </div>
+              <div class="room-price">
+                <span>$420</span>
+                <small>per night</small>
+              </div>
+            </div>
+            <div class="room-actions">
+              <button class="ghost" data-open="aurora">Open 360°</button>
+              <button class="cta">Book now</button>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-viewer" data-room="luna"></div>
+            <div class="room-info">
+              <div>
+                <h3>Luna Garden Loft</h3>
+                <p>Indoor greenery, rain shower, quiet courtyard view.</p>
+              </div>
+              <div class="room-price">
+                <span>$310</span>
+                <small>per night</small>
+              </div>
+            </div>
+            <div class="room-actions">
+              <button class="ghost" data-open="luna">Open 360°</button>
+              <button class="cta">Book now</button>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-viewer" data-room="ember"></div>
+            <div class="room-info">
+              <div>
+                <h3>Ember Corner Studio</h3>
+                <p>Warm textures, work lounge, corner windows.</p>
+              </div>
+              <div class="room-price">
+                <span>$275</span>
+                <small>per night</small>
+              </div>
+            </div>
+            <div class="room-actions">
+              <button class="ghost" data-open="ember">Open 360°</button>
+              <button class="cta">Book now</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experiences" class="experiences">
+        <div class="section-header">
+          <h2>Stay for the experience</h2>
+          <p>Curated perks and spaces you can explore in 360°.</p>
+        </div>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <h4>Skyline lounge</h4>
+            <p>Sunset cocktails with a full panoramic walkthrough.</p>
+          </div>
+          <div class="experience-card">
+            <h4>Wellness suite</h4>
+            <p>Virtual preview of spa, sauna, and recovery pods.</p>
+          </div>
+          <div class="experience-card">
+            <h4>Chef's table</h4>
+            <p>See the dining room layout and private alcoves.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" class="booking">
+        <div class="booking-card">
+          <h2>Ready to book?</h2>
+          <p>
+            Choose your room, select dates, and reserve instantly. No hidden
+            fees.
+          </p>
+          <form class="booking-form">
+            <input type="text" placeholder="Full name" />
+            <input type="email" placeholder="Email address" />
+            <select>
+              <option>Aurora Sky Suite</option>
+              <option>Luna Garden Loft</option>
+              <option>Ember Corner Studio</option>
+            </select>
+            <div class="date-row">
+              <input type="date" />
+              <input type="date" />
+            </div>
+            <button class="cta" type="button">Confirm booking</button>
+          </form>
+        </div>
+        <div class="booking-aside">
+          <div class="aside-card">
+            <h3>Need help?</h3>
+            <p>Chat with our concierge 24/7 for custom packages.</p>
+            <button class="ghost">Start chat</button>
+          </div>
+          <div class="aside-card alt">
+            <h3>AR/VR ready</h3>
+            <p>Optimized for mobile gyroscope and VR headsets.</p>
+            <button class="ghost">View tips</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <div class="brand-name">VistaStay</div>
+        <p>Immersive hotel booking built for modern travelers.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#booking">Book</a>
+      </div>
+      <div class="footer-links">
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Cirque_Room_Esther_Bruton_Panorama.jpg"
+          target="_blank"
+          rel="noreferrer"
+          >360° Image 1</a
+        >
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_(Pano360_Room_Pachon_Hotel1-CC).jpg"
+          target="_blank"
+          rel="noreferrer"
+          >360° Image 2</a
+        >
+        <a
+          href="https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Hotel_and_Restaurant_Entrance_360_Panorama_(2022_04_08_Pano360_Pachon_Hotel_Hall-CC).jpg"
+          target="_blank"
+          rel="noreferrer"
+          >360° Image 3</a
+        >
+      </div>
+      <div class="footer-note">© 2026 VistaStay Hotels</div>
+    </footer>
+
+    <div class="chat-widget" id="chatWidget">
+      <button class="chat-toggle" id="chatToggle">
+        <span>Need help?</span>
+        <strong>Chat</strong>
+      </button>
+      <div class="chat-panel" aria-hidden="true">
+        <div class="chat-header">
+          <div>
+            <div class="chat-title">VistaStay Assistant</div>
+            <div class="chat-subtitle">Static support widget</div>
+          </div>
+          <button class="ghost" id="chatClose">Close</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="chat-message bot">
+            Hi! Ask me about room availability, bedroom type, or price.
+          </div>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <input
+            type="text"
+            placeholder="Type a question..."
+            aria-label="Chat question"
+            required
+          />
+          <button class="cta" type="submit">Send</button>
+        </form>
+        <div class="chat-quick">
+          <button class="ghost" data-chat-q="Is the room still available ?">
+            Is the room still available ?
+          </button>
+          <button class="ghost" data-chat-q="Is it single or double bedroom ?">
+            Is it single or double bedroom ?
+          </button>
+          <button class="ghost" data-chat-q="What is the price per night ?">
+            What is the price per night ?
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="viewerModal" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h3 id="modalTitle">Room 360° View</h3>
+            <p id="modalSubtitle">Drag to pan the room panorama.</p>
+          </div>
+          <button class="ghost" id="closeModal">Close</button>
+        </div>
+        <div class="modal-viewer" id="modalViewer"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

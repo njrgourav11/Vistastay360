@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="600" viewBox="0 0 2000 600">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <pattern id="lights" width="120" height="120" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="30" r="4" fill="rgba(255,255,255,0.3)" />
+      <circle cx="80" cy="60" r="5" fill="rgba(255,255,255,0.2)" />
+      <circle cx="50" cy="90" r="3" fill="rgba(255,255,255,0.25)" />
+    </pattern>
+  </defs>
+  <rect width="2000" height="600" fill="url(#sky)" />
+  <rect width="2000" height="600" fill="url(#lights)" />
+  <rect y="420" width="2000" height="180" fill="rgba(15,23,42,0.28)" />
+  <rect x="140" y="360" width="240" height="90" fill="rgba(15,23,42,0.4)" />
+  <rect x="460" y="340" width="220" height="110" fill="rgba(15,23,42,0.5)" />
+  <rect x="760" y="330" width="260" height="120" fill="rgba(15,23,42,0.35)" />
+  <rect x="1100" y="350" width="230" height="100" fill="rgba(15,23,42,0.5)" />
+  <rect x="1400" y="320" width="280" height="130" fill="rgba(15,23,42,0.4)" />
+  <text x="1000" y="300" text-anchor="middle" font-size="64" font-family="DM Sans, sans-serif" fill="#ffffff">
+    Aurora Sky Suite • 360° Panorama
+  </text>
+</svg>
