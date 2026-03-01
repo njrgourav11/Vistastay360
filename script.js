@@ -23,38 +23,64 @@ function setupViewer(element, roomKey) {
   const room = rooms[roomKey];
   if (!room) return;
   element.style.backgroundImage = `url("${room.image}")`;
-  element.style.backgroundSize = "200% 100%";
-  element.style.backgroundPosition = "50% 50%";
-  element.dataset.offset = "50";
+  element.style.backgroundPosition = "0px 50%";
 
   let isDragging = false;
   let lastX = 0;
+  let positionX = 0;
+  let velocity = 0;
+  let rafId = null;
+
+  const applyPosition = () => {
+    element.style.backgroundPosition = `${positionX}px 50%`;
+  };
+
+  const animateInertia = () => {
+    if (Math.abs(velocity) < 0.02) {
+      velocity = 0;
+      rafId = null;
+      return;
+    }
+    positionX += velocity;
+    velocity *= 0.92;
+    applyPosition();
+    rafId = requestAnimationFrame(animateInertia);
+  };
 
   const onPointerDown = (event) => {
     isDragging = true;
     lastX = event.clientX;
+    velocity = 0;
     element.style.cursor = "grabbing";
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    element.setPointerCapture(event.pointerId);
   };
 
   const onPointerMove = (event) => {
     if (!isDragging) return;
     const delta = event.clientX - lastX;
     lastX = event.clientX;
-    const current = Number.parseFloat(element.dataset.offset || "50");
-    const next = Math.min(100, Math.max(0, current - delta * 0.08));
-    element.dataset.offset = String(next);
-    element.style.backgroundPosition = `${next}% 50%`;
+    positionX += delta;
+    velocity = delta;
+    applyPosition();
   };
 
-  const onPointerUp = () => {
+  const onPointerUp = (event) => {
     isDragging = false;
     element.style.cursor = "grab";
+    element.releasePointerCapture(event.pointerId);
+    if (!rafId) {
+      rafId = requestAnimationFrame(animateInertia);
+    }
   };
 
   element.addEventListener("pointerdown", onPointerDown);
   element.addEventListener("pointermove", onPointerMove);
-  element.addEventListener("pointerleave", onPointerUp);
   element.addEventListener("pointerup", onPointerUp);
+  element.addEventListener("pointercancel", onPointerUp);
 }
 
 document.querySelectorAll("[data-room]").forEach((viewer) => {
@@ -76,11 +102,13 @@ function openModal(roomKey) {
   setupViewer(modalViewer, roomKey);
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
 }
 
 document.querySelectorAll("[data-open]").forEach((button) => {
@@ -92,4 +120,84 @@ document.querySelectorAll("[data-open]").forEach((button) => {
 closeModalBtn.addEventListener("click", closeModal);
 modal.addEventListener("click", (event) => {
   if (event.target === modal) closeModal();
+});
+
+const chatWidget = document.getElementById("chatWidget");
+const chatToggle = document.getElementById("chatToggle");
+const chatPanel = chatWidget?.querySelector(".chat-panel");
+const chatClose = document.getElementById("chatClose");
+const chatForm = document.getElementById("chatForm");
+const chatBody = document.getElementById("chatBody");
+
+const staticResponses = [
+  {
+    match: "is the room still available ?",
+    answer: "Yes, the room is still available.",
+  },
+  {
+    match: "is it single or double bedroom ?",
+    answer: "Double Bedroom.",
+  },
+  {
+    match: "what is the price per night ?",
+    answer: "The current price for the preferred room is ₹3999 per night.",
+  },
+];
+
+function addMessage(text, type) {
+  if (!chatBody) return;
+  const message = document.createElement("div");
+  message.className = `chat-message ${type}`;
+  message.textContent = text;
+  chatBody.appendChild(message);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getStaticReply(question) {
+  const normalized = question.trim().toLowerCase();
+  const found = staticResponses.find((item) => item.match === normalized);
+  return (
+    found?.answer ||
+    "I can answer questions about availability, bedroom type, and nightly price."
+  );
+}
+
+function openChat() {
+  if (!chatPanel) return;
+  chatPanel.classList.add("open");
+  chatPanel.setAttribute("aria-hidden", "false");
+}
+
+function closeChat() {
+  if (!chatPanel) return;
+  chatPanel.classList.remove("open");
+  chatPanel.setAttribute("aria-hidden", "true");
+}
+
+chatToggle?.addEventListener("click", () => {
+  if (!chatPanel) return;
+  chatPanel.classList.contains("open") ? closeChat() : openChat();
+});
+
+chatClose?.addEventListener("click", closeChat);
+
+chatForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const input = chatForm.querySelector("input");
+  if (!input) return;
+  const question = input.value;
+  if (!question.trim()) return;
+  addMessage(question, "user");
+  addMessage(getStaticReply(question), "bot");
+  input.value = "";
+});
+
+document.querySelectorAll("[data-chat-q]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const question = button.getAttribute("data-chat-q");
+    if (!question) return;
+    openChat();
+    addMessage(question, "user");
+    addMessage(getStaticReply(question), "bot");
+  });
 });
